@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import { StyleSheet, TextInput } from 'react-native'
 
-export default function Input({ placeholder, onSubmitEditing }) {
+export default function NameInput({ valorPadrao, onSubmitEditing }) {
     const [text, setText] = useState('')
+
+    //(value) => setText(value)
+    function handleChangeText(value) {
+        setText(value)
+    }
 
     return (
         <TextInput
             style={styles.input}
             value={text}
-            placeholder={placeholder}
-            onChangeText={(value) => setText(value)}
+            placeholder={valorPadrao}
+            onChangeText={handleChangeText}
             onSubmitEditing={() => {
+                //Verifica se possui algum valor
                 if (!text) return
 
                 onSubmitEditing(text)

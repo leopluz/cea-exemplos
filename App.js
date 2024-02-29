@@ -1,8 +1,8 @@
-import SectionListExample from './components/SectionListExample';
+import NameStorage from './components/NameStorage';
 
 export default function App() {
   return (
-      <SectionListExample />
+      <NameStorage />
   );
 }
 

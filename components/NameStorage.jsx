@@ -37,7 +37,7 @@ export default function NameStorage() {
     return (
         <View>
             <NameInput
-                placeholder={'Digite aqui o seu nome'}
+                valorPadrao={'Digite algo'}
                 onSubmitEditing={(value) => {
                     saveName(value)
                 }}

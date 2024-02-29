@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from 'react-native'
 
 import Toggle from './Toggle'
 
-export default function App() {
+export default function ChangeLayout() {
   const [flexDirection, setFlexDirection] = useState('row')
   const [justifyContent, setJustifyContent] = useState('center')
   const [alignItems, setAlignItems] = useState('center')

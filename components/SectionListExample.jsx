@@ -3,15 +3,15 @@ import { SectionList, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 const DATA = [
     {
-        title: 'Prato principal',
+        titulo: 'Prato principal',
         data: ['Carne', 'Frango', 'Peixe'],
     },
     {
-        title: 'Acompanhamento',
+        titulo: 'Acompanhamento',
         data: ['Batata frita', 'Anéis de cebola'],
     },
     {
-        title: 'Bebida',
+        titulo: 'Bebida',
         data: ['Água', 'Refrigerante', 'Cerveja', 'Suco'],
     }
 ];
@@ -27,13 +27,21 @@ export default function SectionListExample() {
                         <Text style={styles.title}>{item}</Text>
                     </View>
                 )}
-                renderSectionHeader={({ section: { title } }) => (
-                    <Text style={styles.header}>{title}</Text>
-                )}
-            />
+                renderSectionHeader={mountSectionHeader} />
         </View>
     )
 };
+
+//SectionList -> renderSectionHeader
+//https://reactnative.dev/docs/sectionlist#rendersectionheader
+
+//(info: {section: Section}) => element ｜ null
+function mountSectionHeader(info) {
+    console.log(info)
+    const section = info.section;
+    const title = section.titulo;
+    return <Text style={styles.header}>{title}</Text>
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -42,13 +50,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
     },
     item: {
-        backgroundColor: 'skyblue',
+        backgroundColor: 'yellow',
         padding: 10,
-        marginVertical: 8,
+        marginVertical: 0,
     },
     header: {
         fontSize: 32,
-        backgroundColor: '#fff',
+        backgroundColor: '#00F',
     },
     title: {
         fontSize: 24,
